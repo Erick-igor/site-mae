@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Dia das Mulheres</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+color:white;
+background:linear-gradient(135deg,#ff7eb3,#ff3d8b);
+overflow:hidden;
+}
+
+/* cartão */
+.cartao{
+margin-top:80px;
+background:rgba(255,255,255,0.25);
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:350px;
+margin-left:auto;
+margin-right:auto;
+backdrop-filter:blur(10px);
+}
+
+/* botão */
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff0066;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff3385;
+}
+
+/* fotos */
+.foto{
+position:fixed;
+width:100px;
+border-radius:20px;
+z-index:10;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.topo-esq{top:10px;left:10px;}
+.topo-dir{top:10px;right:10px;}
+.baixo-esq{bottom:10px;left:10px;}
+.baixo-dir{bottom:10px;right:10px;}
+
+/* corações */
+.heart{
+position:fixed;
+top:-10px;
+font-size:24px;
+animation:cair linear infinite;
+}
+
+@keyframes cair{
+0%{transform:translateY(-10px);}
+100%{transform:translateY(110vh);}
+}
+
+/* celular */
+@media (max-width:600px){
+
+.foto{
+width:70px;
+}
+
+.cartao{
+margin-top:120px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- fotos -->
+<img src="foto1.jpg.jpeg" class="foto topo-esq">
+<img src="foto2.jpg.jpeg" class="foto topo-dir">
+<img src="foto3.jpg.jpeg" class="foto baixo-esq">
+<img src="foto4.jpg.jpeg" class="foto baixo-dir">
+
+<div class="cartao">
+
+<h1>🌸 Feliz Dia das Mulheres 🌸</h1>
+
+<p>Mãe <b>Suely</b>,</p>
+
+<p>
+Obrigado por tudo que você faz por mim.  
+Você é uma mulher incrível e muito especial.
+</p>
+
+<p>Eu te amo muito ❤️</p>
+
+<br>
+
+<button onclick="surpresa()">Clique para surpresa 🎁</button>
+
+</div>
+
+<script>
+
+function surpresa(){
+alert("Mãe Suely, você é a melhor mãe do mundo! ❤️");
+}
+
+function criarCoracao(){
+
+const coracao=document.createElement("div");
+
+coracao.classList.add("heart");
+
+coracao.innerHTML="❤️";
+
+coracao.style.left=Math.random()*100+"vw";
+
+coracao.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(coracao);
+
+setTimeout(()=>{
+coracao.remove();
+},5000);
+
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
